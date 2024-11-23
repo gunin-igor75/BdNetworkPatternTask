@@ -8,18 +8,28 @@ import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.BouquetFlowerDb
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.FlowerBalanceTuple
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.FlowerDb
+import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.WarehouseDb
 
 @Dao
 interface FlowerShopDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFlower(vararg flower: FlowerDb)
+    @Query("SELECT * FROM flowers")
+    suspend fun getFlowers(): List<FlowerDb>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBouquet(vararg bouquet: BouquetDb)
+    suspend fun insertFlower(vararg flower: FlowerDb)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBouquetFlower(vararg bouquetFlower: BouquetFlowerDb)
+    suspend fun insertBouquet(vararg bouquet: BouquetDb)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBouquetFlower(vararg bouquetFlower: BouquetFlowerDb)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertWarehouse(vararg  warehouse: WarehouseDb)
+
+    @Query("SELECT amount FROM warehouse WHERE flower_id =:flowerId LIMIT 1")
+    suspend fun getAmountFlower(flowerId: Int): Int
 
     @Query(
         "SELECT warehouse.id, " +

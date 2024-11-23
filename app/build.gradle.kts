@@ -59,8 +59,12 @@ dependencies {
 
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.converter.gson)
-    
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.hamkrest)
+    androidTestImplementation(libs.room.testing)
+    androidTestImplementation(libs.coroutine.test)
+    androidTestImplementation(libs.assertj.core)
 }

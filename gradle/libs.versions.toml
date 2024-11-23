@@ -14,6 +14,9 @@ ksp = "1.9.22-1.0.16"
 json = "2.10.1"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
+hamkrest = "1.8.0.1"
+coroutene-test = "1.8.0"
+assertj = "3.26.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +38,12 @@ retrofit-converter-gson = {group ="com.squareup.retrofit2", name = "converter-gs
 
 okhttp-core = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp"}
 okhttp-logging = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
+
+hamkrest = {group = "com.natpryce", name = "hamkrest", version.ref = "hamkrest"}
+room-testing = {group = "androidx.room", name = "room-testing", version.ref = "room"}
+coroutine-test = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutene-test"}
+
+assertj-core = {group = "org.assertj", name = "assertj-core", version.ref = "assertj"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

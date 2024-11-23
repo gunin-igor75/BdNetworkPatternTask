@@ -6,7 +6,6 @@ class FlowerShopRepositoryImpl(
     private val apiDao: FlowerShopDao
 ) : FlowerShopRepository {
 
-
     override suspend fun buyBouquet(bouquetId: Int, amount: Int): Boolean {
         val flowerBalance = apiDao.getBalance(bouquetId, amount)
         val opportunityPurchase = flowerBalance.all { it.remainder >= 0 }
