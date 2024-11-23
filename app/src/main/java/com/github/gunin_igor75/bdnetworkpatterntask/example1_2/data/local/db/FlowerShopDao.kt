@@ -4,12 +4,10 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.BouquetDb
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.BouquetFlowerDb
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.FlowerBalanceTuple
 import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.FlowerDb
-import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity.WarehouseDb
 
 @Dao
 interface FlowerShopDao {
@@ -35,6 +33,6 @@ interface FlowerShopDao {
     )
     suspend fun getBalance(bouquetId: Int, amountBouquet: Int): List<FlowerBalanceTuple>
 
-    @Update
-    suspend fun updateFlowerCount(warehouseDb: List<WarehouseDb>)
+    @Query("UPDATE warehouse SET amount =:amount WHERE id =:warehouseId")
+    suspend fun updateFlowerCount(warehouseId: Int, amount: Int)
 }
