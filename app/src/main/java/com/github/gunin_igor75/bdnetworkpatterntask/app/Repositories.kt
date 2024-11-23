@@ -11,8 +11,6 @@ object Repositories {
         FlowerShopDatabase.init(applicationContext)
     }
 
-
-
     fun init(context: Context) {
         applicationContext = context
     }

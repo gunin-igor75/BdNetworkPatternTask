@@ -7,7 +7,11 @@ class FlowerShopRepositoryImpl(
 ) : FlowerShopRepository {
 
 
-    override fun buyBouquet(bouquetId: Int, amount: Int): Boolean {
-        return false
+    override suspend fun buyBouquet(bouquetId: Int, amount: Int): Boolean {
+        val flowerBalance = apiDao.getBalance(bouquetId, amount)
+        val opportunityPurchase = flowerBalance.all { it.remainder >= 0 }
+        if (!opportunityPurchase) return false
+        flowerBalance.forEach { apiDao.updateFlowerCount(it.id, it.remainder) }
+        return true
     }
 }
