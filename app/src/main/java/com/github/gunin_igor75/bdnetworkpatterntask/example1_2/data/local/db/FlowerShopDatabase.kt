@@ -16,7 +16,7 @@ import com.github.gunin_igor75.bdnetworkpatterntask.example1_2.data.local.entity
         BouquetFlowerDb::class,
         WarehouseDb::class
     ],
-    version = 1
+    version = 2
 )
 abstract class FlowerShopDatabase : RoomDatabase() {
 
@@ -33,6 +33,7 @@ abstract class FlowerShopDatabase : RoomDatabase() {
                 FlowerShopDatabase::class.java,
                 DB_NAME
             ).createFromAsset("initial_database.db")
+                .addMigrations(MIGRATION_1_2)
                 .build()
             _database = instance
             return instance

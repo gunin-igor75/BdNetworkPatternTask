@@ -14,4 +14,6 @@ data class FlowerDb(
     val id: Int,
     @ColumnInfo("name")
     val name: String,
+    @ColumnInfo("country_origin")
+    val countryOrigin: String?
 )
