@@ -12,5 +12,9 @@ data class BouquetDb(
     @ColumnInfo("id")
     val id: Int,
     @ColumnInfo("name")
-    val name: String
+    val name: String,
+    @ColumnInfo("craft_paper")
+    val craftPaper: String?,
+    @ColumnInfo("basket")
+    val basket: String?
 )

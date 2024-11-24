@@ -74,16 +74,16 @@ class FlowerShopRepositoryImplTest {
     }
 
     private suspend fun insertFlowers() {
-        val rose = FlowerDb(0, "rose")
-        val tulip = FlowerDb(0, "tulip")
-        val lily = FlowerDb(0, "lily")
-        val carnation = FlowerDb(0, "carnation")
-        val orchid = FlowerDb(0, "orchid")
-        val daisy = FlowerDb(0, "daisy")
-        val aster = FlowerDb(0, "aster")
-        val gladiolus = FlowerDb(0, "gladiolus")
-        val dahlia = FlowerDb(0, "dahlia")
-        val violet = FlowerDb(0, "violet")
+        val rose = FlowerDb(0, "rose", "russia")
+        val tulip = FlowerDb(0, "tulip", "russia")
+        val lily = FlowerDb(0, "lily", "russia")
+        val carnation = FlowerDb(0, "carnation", "russia")
+        val orchid = FlowerDb(0, "orchid", null)
+        val daisy = FlowerDb(0, "daisy", null)
+        val aster = FlowerDb(0, "aster", "russia")
+        val gladiolus = FlowerDb(0, "gladiolus", "russia")
+        val dahlia = FlowerDb(0, "dahlia", "russia")
+        val violet = FlowerDb(0, "violet", null)
         apiDao.insertFlower(
             rose,
             tulip,
@@ -99,9 +99,9 @@ class FlowerShopRepositoryImplTest {
     }
 
     private suspend fun insertBouquet() {
-        val bouquetFirst = BouquetDb(0, "bouquetFirst")
-        val bouquetSecond = BouquetDb(0, "bouquetSecond")
-        val bouquetThree = BouquetDb(0, "bouquetThree")
+        val bouquetFirst = BouquetDb(0, "bouquetFirst", "sparkly", "wicker")
+        val bouquetSecond = BouquetDb(0, "bouquetSecond", "sparkly", "wicker")
+        val bouquetThree = BouquetDb(0, "bouquetThree", null, null)
         apiDao.insertBouquet(bouquetFirst, bouquetSecond, bouquetThree)
     }
 
